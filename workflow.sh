@@ -32,3 +32,11 @@ java -jar $GATK -T HaplotypeCaller \
   -I bams/trio-calling/NA12882_wgs_20.bam \
   -o sandbox/NA12878_wgs_20_HC_jointcalls.vcf \
   -L 20:10,000,000-10,200,000
+  
+# Run HaplotypeCaller on a single bam file in GVCF mode
+java -jar $GATK -T HaplotypeCaller \
+  -R ref/human_g1k_b37_20.fasta \
+  -I bams/exp_design/NA12878_wgs_20.bam \
+  -o sandbox/NA12878_wgs_20.g.vcf \
+  -ERC GVCF \
+  -L 20:10,000,000-10,200,000 
